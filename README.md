@@ -1,11 +1,16 @@
 
 # Getting Started 
 
-To get started with this project: \
+To get started with this project:
+
 Installing the libraries:\
-`pip install -r requirements.txt`\
+`pip install -r requirements.txt`
+
 Creating the folder structure:\
 `python setup.py`
+
+Download trained model from `https://drive.google.com/file/d/1ja1ZPJsW-KW6_Jm7p9L5tkvmbx2t3aiN/view?usp=sharing` \
+and placed it in `models` subdirectory
 
 The main driver notebook can be found as `main.ipynb` \
 For a quick demo of the model in a web interface, `demo_gradio.py` is provided
