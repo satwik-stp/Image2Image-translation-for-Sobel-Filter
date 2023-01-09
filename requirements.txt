@@ -1,0 +1,13 @@
+gdown
+opencv-python
+numpy
+matplotlib
+torch
+torchvision
+torchmetrics
+torchsummary
+segmentation-models-pytorch
+pytorch-lightning
+tensorboard==2.2.1
+scikit-learn
+scikit-image
