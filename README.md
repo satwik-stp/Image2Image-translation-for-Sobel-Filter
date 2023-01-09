@@ -22,23 +22,25 @@ The main driver of Pix2Pix notebook can be found:\
 For a quick demo of the model in a web interface:\
 `python demo_gradio.py`
 
+
 # Project structure
 
-|---- README.md       			<- The top-level README for using this project.\
+|---- README.md       		<- The top-level README for using this project.\
 |----data                       <- The directory for storing the data.
 
-	|----raw           			<- for storing original, immutable data dump.\
-	|----interim     			<- for storing transformed data.\
-	|----processed           	<- for storing canonical dataset for modelling.\
+	|----raw           	<- for storing original, immutable data dump.\
+	|----interim     	<- for storing transformed data.\
+	|----processed          <- for storing canonical dataset for modelling.\
 |----figures                    <- The directory for storing the figures and images.\
 |----models                     <- The directory for storing saved models.\
 |----src                       	<- Python module for this project.
 
-    |----dataset           	    <- Contains code for downloading, preparing, and loading dataset.\
-	|----models     			<-Contains pix2pix model architecture.\
-	|----experiment           	<- Contains code to perform training.\
-    |----testing           		    <- Contains code to perform single image tests.\
-|----main.ipynb                 <- Driver notebook for this project.\
+    |----dataset           	<- Contains code for downloading, preparing, and loading dataset.\
+	|----models     	<-Contains pix2pix model architecture.\
+	|----experiment         <- Contains code to perform training.\
+    |----testing           	<- Contains code to perform single image tests.\
+|----main.ipynb                 <- Driver notebook for Pix2Pix.\
+|----simple_main.ipynb          <- Driver notebook for Simple Autoencoder.\
 |----get_started.py             <- Contains code to make folder structure for this project.\
 |----gradio_demo.py             <- Web Interface for testing the model.\
 |----requirements.txt           <- Libraries required for this project.
