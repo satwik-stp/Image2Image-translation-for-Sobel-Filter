@@ -77,11 +77,15 @@ class Net(nn.Module):
 
 To accomplish the task of building a neural network that translates an input image into a Sobel filtered image using an advanced archiecture, Pix2Pix GAN architecture is used. As Pix2Pix model is a conditional generative adversarial network used for image-to-image translation, it felt like this model would not only solve the task but can also be a powerful general-purpose model to derive filter of images. I have also tried standard convolution Autoencoder model but found the model to be overfitting.\
 ![Example Pix2Pix model](figures/pix2pix.jpeg?raw=true "Pix2Pix Model")
-The main dataset used for this project is mini coco dataset from the repo [Mini Coco dataset](https://github.com/giddyyupp/coco-minitrain). Additionally, the code also provides interface to use CIFAR-100 and Oxford IIIT Pets datasets.
-The image of the dataset is first processed like grayscale conversion and addition of gaussian blur and because Sobel filter is applied. The input image is the RGB raw image while the output image is grayscale Sobel filtered image. The images are also resized to` 128*128` although the standard pix2pix model uses 256*256, hardware limitations were considered.\
-![Sobel Examples](figures/sobek_examples.jpg?raw=true "Sobel Examples")
+
 The standard Pix2Pix architecture was used in this project, except the input channel and output channels were modified to take 3 channels as input and output 1 channel images. With my current hyperparameters the model has converged quickly providing high structural similarity index measure (SSIM) and Peak signal to noise ratio (PSNR). There is room for further optimization.
 I have used Pytorch Lightning/Pytorch as my main library. The experiment was done on Cloud GPU platform - Paperspace on P5000 Single GPU.
+
+## Dataset
+The main dataset used for this project is mini coco dataset from the repo [Mini Coco dataset](https://github.com/giddyyupp/coco-minitrain). Additionally, the code also provides interface to use CIFAR-100 and Oxford IIIT Pets datasets.
+The image of the dataset is first processed like grayscale conversion and addition of gaussian blur and because Sobel filter is applied. The input image is the RGB raw image while the output image is grayscale Sobel filtered image. The images are also resized to `64*64` for Autoencoder and ` 128*128` for Pix2Pix model although the standard pix2pix model uses 256*256, hardware limitations were considered.\
+![Sobel Examples](figures/sobek_examples.jpg?raw=true "Sobel Examples")
+
 
 # Results
 
