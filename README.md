@@ -9,12 +9,18 @@ Installing the libraries:\
 Creating the folder structure:\
 `python setup.py`
 
-Download trained model from `https://drive.google.com/file/d/1ja1ZPJsW-KW6_Jm7p9L5tkvmbx2t3aiN/view?usp=sharing` \
-and placed it in `models` subdirectory
+Download trained model from:\
+`https://drive.google.com/file/d/1ja1ZPJsW-KW6_Jm7p9L5tkvmbx2t3aiN/view?usp=sharing` \
+and place it in `models` subdirectory
 
-The main driver notebook can be found as `main.ipynb` \
-For a quick demo of the model in a web interface, `demo_gradio.py` is provided
-python demo_gradio.py
+The main driver of simple autoencoder notebook can be found:\
+`simple_main.ipynb`
+
+The main driver of Pix2Pix notebook can be found:\
+`main.ipynb`
+
+For a quick demo of the model in a web interface:\
+`python demo_gradio.py`
 
 # Project structure
 
