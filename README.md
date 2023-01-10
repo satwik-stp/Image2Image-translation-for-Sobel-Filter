@@ -49,14 +49,13 @@ For a quick demo of the model in a web interface:\
 
 # Img2Img Model - Sobel Filter
 
-This project contains code for simple model based on single layer of convolution and single layer of deconvolution, and also contains code for an advanced architecture
--Pix2Pix. 
+This project contains code for a simple 2-layered Autoencoder model and also contains code for a  state of the art image-to -image translation model -Pix2Pix. 
 
 ## Simple Convolution Autoencoder
 
-As I understand, at the core of this task is to find an approximation to Sobel Filter using Deep Learning. From this it can be inferred that the network doesnt require, lots of layers to train.
+As I understand, the core of this task is to find an approximation to Sobel Filter using Deep Learning. Ideally, a learned kernel of the convolution network should be able to approximate this task well. Since Sobel Kernel Convolution is a simple task. 
 
-First part of this project is 2 layers of convolutions followed by 2 layers of deconvolution (to maintain the shape of the output image).
+The first model is Autoencoder network with 2 layers of convolutions followed by 2 layers of deconvolution (to maintain the shape of the output image).
 
 ```
 class Net(nn.Module):
@@ -93,15 +92,15 @@ class Net(nn.Module):
 
 ## Pix2Pix
 
-To accomplish the task of building a neural network that translates an input image into a Sobel filtered image using an advanced archiecture, Pix2Pix GAN architecture is used. As Pix2Pix model is a conditional generative adversarial network used for image-to-image translation, it felt like this model would not only solve the task but can also be a powerful general-purpose model to derive filter of images. I have also tried standard convolution Autoencoder model but found the model to be overfitting.\
+I also wanted to try state-of-the-art models for image translation: Pix2Pix for this task. As the Pix2Pix model is a conditional generative adversarial network used for image-to-image translation, it felt like this model would not only solve the task but can also be a powerful general-purpose model to derive any kind of filter of images.\
 ![Example Pix2Pix model](figures/pix2pix.jpeg?raw=true "Pix2Pix Model")
 
-The standard Pix2Pix architecture was used in this project, except the input channel and output channels were modified to take 3 channels as input and output 1 channel images. With my current hyperparameters the model has converged quickly providing high structural similarity index measure (SSIM) and Peak signal to noise ratio (PSNR). There is room for further optimization.
+The standard Pix2Pix architecture was used in this project, except the input channel and output channels were modified to take 3 channels as input and output 1 channel images. With my current hyperparameters, the model has converged quickly providing a very high structural similarity index measure (SSIM) and Peak signal to noise ratio (PSNR). However, there is room for further optimization.
 I have used Pytorch Lightning/Pytorch as my main library. The experiment was done on Cloud GPU platform - Paperspace on P5000 Single GPU.
 
 ## Dataset
-The main dataset used for this project is mini coco dataset from the repo [Mini Coco dataset](https://github.com/giddyyupp/coco-minitrain). Additionally, the code also provides interface to use CIFAR-100 and Oxford IIIT Pets datasets.
-The image of the dataset is first processed like grayscale conversion and addition of gaussian blur and because Sobel filter is applied. The input image is the RGB raw image while the output image is grayscale Sobel filtered image. The images are also resized to `64*64` for Autoencoder and ` 128*128` for Pix2Pix model although the standard pix2pix model uses 256*256, hardware limitations were considered.\
+The main dataset used for this project is the mini coco dataset from the repo [Mini Coco dataset](https://github.com/giddyyupp/coco-minitrain). Additionally, the code also provides an interface to use CIFAR-100 and Oxford IIIT Pets datasets.
+The image of the dataset is first processed with grayscale conversion and the addition of gaussian blur. In the next step, the Sobel filter is applied. The input image is the RGB raw image while the output image is a grayscale Sobel-filtered image. The images are also resized to `64*64` for Autoencoder and ` 128*128` for the Pix2Pix model although the standard pix2pix model uses 256*256, hardware limitations were considered.\
 ![Sobel Examples](figures/sobek_examples.jpg?raw=true "Sobel Examples")
 
 
