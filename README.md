@@ -147,26 +147,27 @@ The main limitation I found while training this is hyper parameter optimization 
 
 ## Autoencoder
 **1.What if the image is really large or not of a standard size?**\
-The images are resized to 128*128 dimensions (256*256 works too). Incase images are really large, cropping can also be performed.
+The images are resized to 64*64 dimensions (128*128 works too). If images are really large, random cropping can also be used.
 
 **2.What should occur at the edges of the image?**\
 The Sobel filter is used for edge detection. It works by calculating the gradient of image intensity at each pixel within the image. 
 As for the frame of image itself, unless there is observable border, I have not noticed a edge of the image frame forming.
 
 **3.Are you using a fully convolutional architecture?**\
-I am using PixPix2 model whose building blocks are convolution layers.
+I am using autoencoder architecture whose layers include convolutional, convolutional transpose layers.
 
 **4.Are there optimizations built into your framework of choice (e.g. Pytorch) that can make this fast?**\
-Optimization I used for this project include dropout, learning scheduler. For making the training faster, learning rate or batch size can be increased. Additionally Pytorch supports Multi GPU training but I have not used because of lack of hardware.
+For making the training faster, network size, learning rate or batch size can be increased. Additionally Pytorch supports Multi GPU training but I have not used because of lack of hardware.
 
 **5.What if you wanted to optimize specifically for model size?**\
-For larger models, large batch size can be limiting therefore, I have reduced the batch size. The model might perform well with lesser epochs and lower learning rates.
+I have obsvered from experimentations that 2 layer convolution works better than single layer. Therefore isnt much of a leap with 3 layered network except for faster learning capabilites. Therefore with the view of hardware limitation, 2 layered convolution network was the most optimal for me.
 
 **6.How do you know when training is complete?**\
-Since GAN training is very unstable, I have relied on training and validation PSNR and SSIM values. Training is stopped when these values have stablized and converged. 
+From combination of training and validation MSE loss, SSIM, PSNR graphs. This autoencoder model is observed to converge well. 
 
 **7.What is the benefit of a deeper model in this case? When might there be a benefit for a deeper model (not with a sobel kernel but generally when thinking about image to image transformations)?**\
-I have used convolutional Autoencoder as my first model, which didnt not produce high SSIM and PSNR values and also overfit on data. Pix2Pix is a deeper model, I have not noticed overfitting, it has produced high PSNR and SSIM values and converged quickly.
+I have obsvered from experimentations that 2 layer convolution works better than single layer. Therefore isnt much of a leap with 3 layered network except for faster learning capabilites. Therefore, there is improvement with increasing the layers but diminishing outcomes after a certain point.
+
 
 
 ## Pix2Pix
