@@ -148,7 +148,7 @@ One of the primary challenges of using random filter, is finding the write optim
 
 ## Pix2Pix
 
-The Pix2Pix model offers flexibility in terms of image-to-image translation.
+The Pix2Pix performed better but the image produced are not satisfactory.
 The main limitation I found while training this is hyperparameter optimization which can change with the filters and also judging from the output images, it can be hard can infer the general results of applying a certain random filter.
 
 # Answers to set of Questions
