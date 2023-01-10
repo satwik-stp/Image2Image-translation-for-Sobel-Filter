@@ -56,20 +56,38 @@ This project contains code for simple model based on single layer of convolution
 
 As I understand, at the core of this task is to find an approximation to Sobel Filter using Deep Learning. From this it can be inferred that the network doesnt require, lots of layers to train.
 
-First part of this project is layered convolution followed by single deconvolution (to maintain the shape of the output image). As seen by the following Pytorch Module.
+First part of this project is 2 layers of convolutions followed by 2 layers of deconvolution (to maintain the shape of the output image).
 
 ```
 class Net(nn.Module):
     def __init__(self):
         super().__init__()
+        
         self.conv1 = nn.Conv2d(3, 16, 3)
-        #self.pool = nn.MaxPool2d(2, 2)
+        self.batch_norm1=nn.BatchNorm2d(16)
+        
+        self.conv2 = nn.Conv2d(16, 32, 3)
+        self.batch_norm2=nn.BatchNorm2d(32)
+        
+        self.trans_conv1=torch.nn.ConvTranspose2d(32,16,3)
+        self.batch_norm3=nn.BatchNorm2d(16)
+        
         self.trans_conv2=torch.nn.ConvTranspose2d(16,1,3)
+        self.batch_norm4=nn.BatchNorm2d(1)
 
 
     def forward(self, x):
-        x = F.relu(self.conv1(x))
-        x = F.relu(self.trans_conv2(x))
+        x = self.conv1(x)
+        x= F.relu(self.batch_norm1(x))
+        
+        x = self.conv2(x)
+        x= F.relu(self.batch_norm2(x))
+        
+        x = self.trans_conv1(x)
+        x= F.relu(self.batch_norm3(x))
+        
+        x = self.trans_conv2(x)
+        x= F.relu(self.batch_norm4(x))
         return x
 ```
 
