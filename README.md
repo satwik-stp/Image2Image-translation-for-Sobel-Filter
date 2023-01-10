@@ -91,7 +91,17 @@ The image of the dataset is first processed like grayscale conversion and additi
 
 ## Autoencoder
 
-Results will be here soon!
+Testing result for the Autoencoder is given below, it has produced decent ssim, psnr values
+```
+Test Loss: 0.05406247079372406
+Test PSNR: 21.546340942382812
+Test SSIM: 0.8205837607383728
+```
+Training and Validation Graphs are:
+![Testing Result1](figures/autoencoder_testing1.png?raw=true "Testing Result 1")
+![Testing Result2](figures/autoencoder_testing2.png?raw=true "Testing Result 2")
+![Testing Result3](figures/autoencoder_testing3.png?raw=true "Testing Result 3")
+
 
 ## Pix2Pix
 For monitoring the experiments W&B (Weights and Bias) tool was used. The code for logging is disabled in this repo as it requires creating account and logging in.\
