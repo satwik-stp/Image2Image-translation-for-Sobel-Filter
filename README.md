@@ -108,7 +108,7 @@ The image of the dataset is first processed with grayscale conversion and the ad
 
 ## Autoencoder
 
-Testing result for the Autoencoder is given below, it has produced decent ssim, psnr values\
+Testing result for the Autoencoder is given below, it has produced decent ssim, psnr values. The graphs also have converged well.
 ```
 Test Loss: 0.05406247079372406
 Test PSNR: 21.546340942382812
