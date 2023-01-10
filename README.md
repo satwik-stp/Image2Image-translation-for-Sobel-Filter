@@ -137,10 +137,19 @@ Examples for testing can be found in `figures/test1.jpg`
 
 # Img2Img Model - Random Filter (Extra Credits)
 
-Autoencoder model to be described here soon
+## Autoencoder
+Autoencoder model struggled to generalize well with an random filter
+```
+Test Loss: 0.25272947549819946
+Test PSNR: 10.065942764282227
+Test SSIM: 0.1438533067703247
+```
+One of the primary challenges of using random filter, is finding the write optimization parameters which appears to change with random filters.
 
-Pix2Pix model offers flexible in terms of image-to-image translation. An example of Random Filter being trained is provided below.\
-The main limitation I found while training this is hyper parameter optimization which can change with the filters and also judging from the output images, it can be hard can infer the general results of applying a certain filter.
+## Pix2Pix
+
+The Pix2Pix model offers flexibility in terms of image-to-image translation.
+The main limitation I found while training this is hyperparameter optimization which can change with the filters and also judging from the output images, it can be hard can infer the general results of applying a certain random filter.
 
 # Answers to set of Questions
 
